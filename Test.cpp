@@ -13,8 +13,8 @@ TEST_CASE("1"){
     for(int i=0;i<100;i++){
         CHECK(test.has_soldiers(1));
         CHECK(test.has_soldiers(2));
-        CHECK_NOTHROW(test.move(1,{0,0},WarGame::Board::Right);)
-    }
+        CHECK_NOTHROW(test.move(1,{0,0},WarGame::Board::Right));
+    };
 
 
 }
