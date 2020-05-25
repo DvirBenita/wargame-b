@@ -16,8 +16,6 @@ void WarGame::Board:: move(uint player_number, std::pair<int,int> source, MoveDI
 
 bool WarGame::Board::has_soldiers(uint player_number) const{
 
-
-    
     return false;
 
 }
