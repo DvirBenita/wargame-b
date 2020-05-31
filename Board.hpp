@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+
 #include "Soldier.hpp"
 
 
@@ -20,10 +21,12 @@ class Board {
   private:
     std::vector<std::vector<Soldier*>> board;
   public:
+    
     enum MoveDIR { Up, Down, Right, Left };
     
     Board(uint numRows, uint numCols) : 
       board(numRows, std::vector<Soldier*>(numCols, nullptr)) {}
+      
 
     ~Board(){
       
