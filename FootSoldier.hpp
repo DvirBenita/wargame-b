@@ -11,7 +11,7 @@ class FootSoldier : public Soldier{
 
     Soldier* minDis(int l,int r,std::vector<std::vector<Soldier*>> board);
 
-    void move(int l,int r,std::vector<std::vector<Soldier*>> board);
+    void move(int l,int r,std::vector<std::vector<Soldier*>>& board);
 
 
 };

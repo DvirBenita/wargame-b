@@ -12,7 +12,7 @@ class FootCommander : public Soldier {
 
 
 
-    void move(int l,int r,std::vector<std::vector<Soldier*>> board);
+    void move(int l,int r,std::vector<std::vector<Soldier*>>& board);
 
 
 };

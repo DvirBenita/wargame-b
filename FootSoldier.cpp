@@ -1,12 +1,14 @@
 #pragma once
-
+#include <iostream>
 #include "FootSoldier.hpp"
+
 
 
 Soldier* FootSoldier::minDis(int l,int r,std::vector<std::vector<Soldier*>> board){
         Soldier* s= nullptr;
-        int L,R;
-        double dis;
+        int L=0,R=0;
+        double dis=0;
+        
         for(int i = 0;i<board.size();i++)
         {
             for(int j=0;j<board[i].size();j++){
@@ -27,9 +29,9 @@ Soldier* FootSoldier::minDis(int l,int r,std::vector<std::vector<Soldier*>> boar
                         dis=sqrt((l-L)*(l-L) + (r-R)*(r-R));
                     }
                 }
-            }
+             }
         }
-         if(board[L][R]->health-20 <= 0){
+         if(s != nullptr && board[L][R]->health-10 <= 0){
             delete board[L][R];
             board[L][R] = nullptr;
             s = nullptr;
@@ -37,11 +39,16 @@ Soldier* FootSoldier::minDis(int l,int r,std::vector<std::vector<Soldier*>> boar
         return s;
     }  
 
-    void FootSoldier::move(int l,int r,std::vector<std::vector<Soldier*>> board){
+    void FootSoldier::move(int l,int r,std::vector<std::vector<Soldier*>>& board){
+
+        
+        
         Soldier* s = minDis(l,r,board);
+      
         if(s != nullptr ){
             s->health -= 10;
         }
+        
 
 
     }

@@ -12,7 +12,7 @@ run: demo
 	./$^
 
 demo: Demo.o DemoGame.o $(STUDENT_OBJECTS)
-	$(CXX) $(CXXFLAGS) $^ -o demo
+	$(CXX) $(CXXFLAGS) $^ -o demo -g3
 
 test: TestCounter.o Test.o $(STUDENT_OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o test
