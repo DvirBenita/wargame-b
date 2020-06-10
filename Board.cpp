@@ -87,18 +87,12 @@ void WarGame::Board:: move(uint player_number, std::pair<int,int> source, MoveDI
     }    
 }
 static int count =0;
-bool WarGame::Board::has_soldiers(uint player_number) const{
-     std::cout<<count++<<std::endl;
-    for(int i =0;i<board.size();i++){
-        for(int j=0;j<board[i].size();j++){
-              if( board[i][j] != nullptr ){
-                std::cout << i<<","<<j<<"-> "<<board[i][j]->player_number<<std::endl;
-                 if(board[i][j]->player_number == player_number){
-                     std::cout<<"health :"<<board[i][j]->health<<std::endl;
-                     return true;
-                 }
-              }
+ bool WarGame::Board::has_soldiers(uint player_number) const{
+
+        for (const auto & i : board) {
+            for (auto j : i) {
+                if(j != nullptr && j->player_number == player_number)
+                    return true;
+            }
         }
-    }
-    return false;
-}
+ };
