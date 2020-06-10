@@ -1,11 +1,11 @@
 #pragma once 
 #include "FootCommander.hpp"
 #include "FootSoldier.hpp"
+#define footCom_health 150
 
-
-Soldier* FootCommander::minDis(int l,int r,std::vector<std::vector<Soldier*>> board){
+Soldier*& FootCommander::minDis(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board){
         Soldier* s= nullptr;
-        int L=0,R=0;
+        int L=0,R=0, l = source.first,r=source.second;
         double dis=0;
         for(int i = 0;i<board.size();i++)
         {
@@ -13,7 +13,6 @@ Soldier* FootCommander::minDis(int l,int r,std::vector<std::vector<Soldier*>> bo
                 if (board[i][j] != nullptr && board[i][j]->player_number != Soldier::player_number)
                 {
                     if(s != nullptr ){
-
                         if(sqrt((l-L)*(l-L) + (r-R)*(r-R))<dis)
                         s=board[L][R];
                         L=l;
@@ -29,7 +28,6 @@ Soldier* FootCommander::minDis(int l,int r,std::vector<std::vector<Soldier*>> bo
                 }
             }
         }
-
         if(s!= nullptr && board[L][R]->health-20 <= 0){
             delete board[L][R];
             board[L][R] = nullptr;
@@ -38,10 +36,9 @@ Soldier* FootCommander::minDis(int l,int r,std::vector<std::vector<Soldier*>> bo
         return s;
     } 
 
-
-
-    void FootCommander::move(int l,int r,std::vector<std::vector<Soldier*>>& board){
-        Soldier* s = minDis(l,r,board);
+    void FootCommander::move(uint player_number,std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board){
+       
+        Soldier* s = minDis(source,board);
         if(s != nullptr ){
             s->health -= 20;
         }
@@ -54,3 +51,8 @@ Soldier* FootCommander::minDis(int l,int r,std::vector<std::vector<Soldier*>> bo
             }
         }
     }    
+
+
+    int fullLife(){
+        return footCom_health;
+    }

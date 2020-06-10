@@ -26,8 +26,8 @@ namespace WarGame {
 			// Add soldiers for player 2:
 			//assert(!board.has_soldiers(2));
 			board[{7,1}] = new FootSoldier(2);
-			board[{7,3}] = new FootCommander(2);
-			board[{7,5}] = new FootSoldier(2);
+		//	board[{7,3}] = new FootCommander(2);
+		//	board[{7,5}] = new FootSoldier(2);
 			//assert(board.has_soldiers(2));
 
 			// In your game, you can put more soldier types, such as the sniper and the paramedic types.
@@ -37,14 +37,14 @@ namespace WarGame {
 			board.move(1, {0,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks from {1,1} to {0,2}.
 			if (!board.has_soldiers(2)) return 1;
 			
-			board.move(2, {7,1}, Board::MoveDIR::Down);    // FootSoldier of player 2 moves forward and attacks from {6,1} to {7,}.
-			if (!board.has_soldiers(1)) return 2;
+			// board.move(2, {7,1}, Board::MoveDIR::Down);    // FootSoldier of player 2 moves forward and attacks from {6,1} to {7,}.
+			// if (!board.has_soldiers(1)) return 2;
 
 			board.move(1, {0,3}, Board::MoveDIR::Up);      // FootCommander of player 1 moves forward from {0,3} to {1,3}, and all soldiers of player 1 attack.
 			if (!board.has_soldiers(2)) return 1;
 			
-			board.move(2, {7,3}, Board::MoveDIR::Left);    // FootCommander of player 2 moves left from {7,3} to {7,4}, and all soldiers of player 2 attack.
-			if (!board.has_soldiers(1)) return 2;
+			// board.move(2, {7,3}, Board::MoveDIR::Left);    // FootCommander of player 2 moves left from {7,3} to {7,4}, and all soldiers of player 2 attack.
+			// if (!board.has_soldiers(1)) return 2;
 
 			/// Write more moves here..
 			board.move(1, {1,3}, Board::MoveDIR::Up);      // FootCommander of player 1 moves forward from {0,3} to {1,3}, and all soldiers of player 1 attack.
@@ -72,9 +72,18 @@ namespace WarGame {
 
 			board.move(1, {2,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks from {1,1} to {0,2}.
 			if (!board.has_soldiers(2)) return 1;
+
+
+			board.move(1, {3,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks from {1,1} to {0,2}.
+			if (!board.has_soldiers(2)) return 1;
+
+
+			board.move(1, {4,1}, Board::MoveDIR::Up);      // FootSoldier of player 1 moves forward and attacks from {1,1} to {0,2}.
+			if (!board.has_soldiers(2)) return 1;
 			// If no player won, return "tie":
 
-			
+			board.move(1, {5,3}, Board::MoveDIR::Up);      // FootCommander of player 1 moves forward from {0,3} to {1,3}, and all soldiers of player 1 attack.
+			if (!board.has_soldiers(2)) return 1;
 			// board.move(1, {6,3}, Board::MoveDIR::Down);      // FootCommander of player 1 moves forward from {0,3} to {1,3}, and all soldiers of player 1 attack.
 			// if (!board.has_soldiers(2)) return 1;
 			

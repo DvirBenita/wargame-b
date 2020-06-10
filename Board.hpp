@@ -17,6 +17,21 @@
 
 namespace WarGame {
 
+class SoldierProxy{
+  Soldier*& soldier;
+  SoldierProxy(Soldier*& the_soldier):soldier(the_soldier){}
+
+  Soldier*&  operator=(Soldier*& new_soldier){
+
+    if(soldier == nullptr){
+      soldier = new_soldier;
+    }
+  }
+
+
+
+};
+
 class Board {
   private:
     std::vector<std::vector<Soldier*>> board;
