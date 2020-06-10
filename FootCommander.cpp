@@ -39,7 +39,9 @@ Soldier*& FootCommander::minDis(std::pair<int,int> source,std::vector<std::vecto
     void FootCommander::move(uint player_number,std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board){
        
         Soldier* s = minDis(source,board);
+        
         if(s != nullptr ){
+            std::cout<<"name player "<<s->player_number<<std::endl;
             s->health -= 20;
         }
         
