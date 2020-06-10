@@ -1,3 +1,4 @@
+#pragma once
 #include "Board.hpp"
 
 
@@ -48,7 +49,7 @@ void WarGame::Board:: move(uint player_number, std::pair<int,int> source, MoveDI
         if(source.first+1 < board.size() && board[source.first+1][source.second] == nullptr){
          board[source.first+1][source.second]= board[source.first][source.second];
          board[source.first][source.second]= nullptr;  
-         s->move(source.first+1,source.second,board,);  
+         s->move(player_number,source,board);  
         }else{
             throw std::invalid_argument("cannot move up");
         }
@@ -57,7 +58,7 @@ void WarGame::Board:: move(uint player_number, std::pair<int,int> source, MoveDI
         if(source.first-1>=0){
         board[source.first-1][source.second]= board[source.first][source.second];
         board[source.first][source.second]= nullptr;  
-        s->move(source.first-1,source.second,board);
+        s->move(player_number,source,board);
         }else{
             throw std::invalid_argument("cannot move down");
         }
@@ -66,7 +67,7 @@ void WarGame::Board:: move(uint player_number, std::pair<int,int> source, MoveDI
         if(source.second+1 < board[source.first].size()){
         board[source.first][source.second+1]= board[source.first][source.second];
         board[source.first][source.second]= nullptr;  
-        s->move(source.first,source.second+1,board);
+        s->move(player_number,source,board);
         }
         else{
             throw std::invalid_argument("cannot move right");
@@ -76,7 +77,7 @@ void WarGame::Board:: move(uint player_number, std::pair<int,int> source, MoveDI
         if(source.second-1 >= 0){
         board[source.first][source.second-1]= board[source.first][source.second];
         board[source.first][source.second]= nullptr;  
-        s->move(source.first,source.second-1,board);
+        s->move(player_number,source,board);
         }else{
             throw std::invalid_argument("cannot move left");
         }

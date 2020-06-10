@@ -1,7 +1,7 @@
 #pragma once 
 #include "FootCommander.hpp"
 #include "FootSoldier.hpp"
-#define footCom_health 150
+
 
 Soldier*& FootCommander::minDis(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board){
         Soldier* s= nullptr;
@@ -46,13 +46,13 @@ Soldier*& FootCommander::minDis(std::pair<int,int> source,std::vector<std::vecto
         for(int i=0;i<board.size();i++){
             for(int j=0;j<board[i].size();j++){
                 if(FootSoldier* footSol = dynamic_cast<FootSoldier*>(board[i][j])){
-                    footSol->move(i,j,board);
+                    footSol->move(player_number,source,board);
                 }
             }
         }
     }    
 
 
-    int fullLife(){
+    int FootCommander:: fullLife(){
         return footCom_health;
     }

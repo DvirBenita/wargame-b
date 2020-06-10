@@ -4,7 +4,7 @@
   @author Oz Levi
   @since  2020-05
 **/
-
+#pragma once
 #include <iostream>
 #include "DemoGame.hpp"  
 

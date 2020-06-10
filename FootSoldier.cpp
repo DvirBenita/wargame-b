@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "FootSoldier.hpp"
-#define footSoldier_health 100
+
 Soldier*& FootSoldier::minDis(std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board){
         
         Soldier* s= nullptr;
@@ -42,6 +42,6 @@ Soldier*& FootSoldier::minDis(std::pair<int,int> source,std::vector<std::vector<
         }
     }
 
-    int fullLife(){
+    int FootSoldier::fullLife(){
         return footSoldier_health;
     }

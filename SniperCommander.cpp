@@ -1,7 +1,7 @@
-
+#pragma once
 #include "SniperCommander.hpp"
 #include "Sniper.hpp"
-namespace WarGame {
+
     void SniperCommander::move(uint player_number,std::pair<int,int> source,std::vector<std::vector<Soldier*>>& board){
         uint maxHealth = 0;
         Soldier* strongest = nullptr;
@@ -35,4 +35,6 @@ namespace WarGame {
         }    
         
     }
-}
+     int SniperCommander::fullLife(){
+         return sniperCom_health;
+     }

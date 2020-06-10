@@ -31,6 +31,6 @@
     }    
 
 
-    int fullLife(){
+    int  ParamedicCommander::fullLife(){
         return footCom_health;
     }
