@@ -67,6 +67,8 @@ TEST_CASE("Create Soldiers"){
 TEST_CASE("Some forbidden moves"){
     CHECK_THROWS((game_board.move(2, {1,10}, Board::MoveDIR::Up))); // not belong to player 2.
     CHECK_THROWS((game_board.move(1, {18,10}, Board::MoveDIR::Down))); // not belong to player 1.
+    CHECK_THROWS((game_board.move(2, {1,10}, Board::MoveDIR::Up))); // not belong to player 2.
+    CHECK_THROWS((game_board.move(1, {18,10}, Board::MoveDIR::Down))); // not belong to player 1.
 
     CHECK_THROWS((game_board.move(1, {0,10}, Board::MoveDIR::Up))); // The destination is taken by other soldier.
     CHECK_THROWS((game_board.move(2, {19,10}, Board::MoveDIR::Down))); // The destination is taken by other soldier.
